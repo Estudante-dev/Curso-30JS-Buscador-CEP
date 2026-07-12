@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Busque endereços brasileiros pelo CEP em tempo real."
+    />
+    <title>BuscaCEP — Consulta de códigos postais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="pagina">
+      <header class="marca">
+        <p class="marca__nome">BuscaCEP</p>
+        <p class="marca__subtitulo">
+          Digite o CEP e veja o endereço completo em segundos.
+        </p>
+      </header>
+
+      <main class="aplicativo" aria-labelledby="titulo-aplicativo">
+        <h1 id="titulo-aplicativo" class="visualmente-oculto">Consulta de CEP</h1>
+
+        <form class="busca" id="formulario-cep" novalidate>
+          <label class="busca__rotulo" for="cep">CEP</label>
+          <div class="busca__linha">
+            <input
+              type="text"
+              id="cep"
+              name="cep"
+              class="busca__campo"
+              inputmode="numeric"
+              autocomplete="postal-code"
+              maxlength="9"
+              placeholder="00000-000"
+              aria-describedby="dica-cep status"
+              required
+            />
+            <span
+              class="busca__carregando"
+              id="carregando"
+              hidden
+              aria-hidden="true"
+            ></span>
+          </div>
+          <p class="busca__dica" id="dica-cep">
+            A busca inicia automaticamente ao completar 8 dígitos.
+          </p>
+        </form>
+
+        <p
+          class="status"
+          id="status"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></p>
+
+        <section
+          class="resultados"
+          id="resultados"
+          hidden
+          aria-label="Endereço encontrado"
+        >
+          <div class="campo">
+            <span class="campo__rotulo">Logradouro</span>
+            <span class="campo__valor" id="logradouro">—</span>
+          </div>
+          <div class="campo">
+            <span class="campo__rotulo">Bairro</span>
+            <span class="campo__valor" id="bairro">—</span>
+          </div>
+          <div class="campo">
+            <span class="campo__rotulo">Cidade</span>
+            <span class="campo__valor" id="cidade">—</span>
+          </div>
+          <div class="campo">
+            <span class="campo__rotulo">Estado</span>
+            <span class="campo__valor" id="estado">—</span>
+          </div>
+
+          <button type="button" class="botao-copiar" id="botao-copiar">
+            Copiar Endereço Completo
+          </button>
+        </section>
+      </main>
+
+      <footer class="rodape">
+        <p>
+          Dados via
+          <a href="https://viacep.com.br/" target="_blank" rel="noopener noreferrer"
+            >ViaCEP</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
